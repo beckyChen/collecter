@@ -1,0 +1,32 @@
+extends layout
+
+block content
+    div(class = "masthead")
+        ul( class="nav nav-pills pull-right")
+            li(class="active")
+                a(href="#") 首页
+            li
+                a(href="#") 关于
+    h1= title
+    table(class="table table-bordered table-hover")
+        thead(class="info")
+            tr(class="info")
+                th 页面名称
+                th 按钮ID
+                th 按钮标签
+                th 发生时间
+        tbody
+            -list.forEach(function(row){
+                tr
+                    td=row.pageTitle
+                    td=row.id
+                    td=row.label
+                    td=row.createTime
+            -})
+
+    div(class="pagination")
+        ul
+            li: a(href="#") <<
+            -for (var x = 1; x <= (count/20)+1; x++)
+                li: a(href="#") #{x}
+            li: a(href="#") >>
